@@ -1,6 +1,6 @@
 # ECEN-361 Lab-02: Clocks, Timers, and Interrupts
 ### Winter-2025
-     Student Name:  Fill-in HERE
+     Student Name:  Alexander Berryhill
 
 
 ## Introduction and Objective of the Lab
@@ -75,9 +75,9 @@ Note the speed of D1/D2/D3 - they should seem like a 3-bit binary counter.
 
 Once you have all three LEDs blinking properly, answer the following questions:
 
-1. At what frequency does D1 toggle? [*answer here*]
+1. At what frequency does D1 toggle? [1 Hz]
 
-2. Do all LEDs toggle at *exactly* the same time? [*answer here*]
+2. Do all LEDs toggle at *exactly* the same time? [It looks like it]
 
 ## Part 2: Changing the clock tree
 
@@ -92,11 +92,11 @@ Change the clock tree to adjust the rates at which the LEDs blink.
 
 ## Part 2 Questions (3 pts)
 
-1. What has happened to the speed of the timers? [*answer here*]
+1. What has happened to the speed of the timers? [They are much slower]
 
-2. What is the new frequency of LED D1? [*answer here*]
+2. What is the new frequency of LED D1? [ 0.125Hz, but visually it kind of looks more like 0.25Hz]
 
-3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*answer here*]
+3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [Yes]
 
 ## Part 3: Reaction Timer (5 pts)
 
@@ -139,4 +139,16 @@ For Seven Segment Display Functions, check the MultiFunctionShield.h header file
 
 * Currently, the reaction tester can have a wait time anywhere between 0 and 7000 milliseconds, Implement a minimum wait time in such a way that doesn't change the potential maximum wait time
 
-If you do any of these items - just mention what and how it worked, [*here*].
+If you do any of these items - just mention what and how it worked, [*
+min value done prescaled_millisec = rand() % upper_limit_millisec_to_wait;
+	    rand_millisec = 2000 + prescaled_millisec; // const not working
+       
+       Change the “Go” lights to be all of the D1..4 LEDs instead of displaying '8888' on the SevenSegments.
+       HAL_GPIO_TogglePin(LED_D1_GPIO_Port, LED_D1_Pin);
+		HAL_GPIO_TogglePin(LED_D2_GPIO_Port, LED_D2_Pin);
+		HAL_GPIO_TogglePin(LED_D3_GPIO_Port, LED_D3_Pin);
+		HAL_GPIO_TogglePin(LED_D4_GPIO_Port, LED_D4_Pin);
+
+      Cheating penalty
+      in main, if it detects the stop button early led4 turns on and thetimer resets and turns off
+       *].

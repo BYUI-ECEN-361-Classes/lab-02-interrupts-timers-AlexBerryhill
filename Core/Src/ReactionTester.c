@@ -37,10 +37,14 @@ extern int best_reaction_time_in_millisec;
 
 
 // Globals
-#define upper_limit_millisec_to_wait  7000;  //Give the user up to 7 seconds to wonder
+#define lower_limit_millisec_to_wait  2000;  //Give the user up to 7 seconds to wonder
 
-int rand_millisec;
+#define upper_limit_millisec_to_wait  7000 - lower_limit_millisec_to_wait;  //Give the user up to 7 seconds to wonder
+
+int rand_millisec =0;
 int last_reaction_time_in_millisec = 0;
+int prescaled_millisec;
+bool started = false;
 bool started_doing_reaction_timers = false;
 
 void show_a_random_number()
@@ -64,13 +68,29 @@ void got_start()
 		*/
 		started_doing_reaction_timers = true;
 	    Clear_LEDs();
-		rand_millisec =  rand() % upper_limit_millisec_to_wait;
+	    prescaled_millisec = rand() % upper_limit_millisec_to_wait;
+	    rand_millisec = 2000 + prescaled_millisec; // const not working
 
 	  /**************** STUDENT TO FILL IN START HERE ********************/
 		// Step 1
+		MultiFunctionShield_Display(rand_millisec);
+//		Display_Waiting();
+
 		// Step 2
+		HAL_Delay(rand_millisec);
+
 		// Step 3
+//		Display_All();
+		HAL_GPIO_TogglePin(LED_D1_GPIO_Port, LED_D1_Pin);
+		HAL_GPIO_TogglePin(LED_D2_GPIO_Port, LED_D2_Pin);
+		HAL_GPIO_TogglePin(LED_D3_GPIO_Port, LED_D3_Pin);
+		HAL_GPIO_TogglePin(LED_D4_GPIO_Port, LED_D4_Pin);
+
+
 		// Step 4
+
+		HAL_TIM_Base_Start_IT(&htim3);
+		started = true;
 	  /**************** STUDENT TO FILL IN END  HERE ********************/
 	}
 void got_stop()
@@ -85,12 +105,17 @@ void got_stop()
 
 
 	  /**************** STUDENT TO FILL IN START HERE ********************/
-      // 1.) Stop the random timer // Random timer is timer3
+	  // 1.) Stop the random timer // Random timer is timer3
+      HAL_TIM_Base_Stop(&htim3);
 
       // 2.) Read the value of the timer -- this step provided
 		last_reaction_time_in_millisec = __HAL_TIM_GetCounter(&htim3) / 10; // Why is it divide by 10?
 
 	  // 3.) Display the value
+	    MultiFunctionShield_Display(last_reaction_time_in_millisec);
+	    if (best_reaction_time_in_millisec>last_reaction_time_in_millisec || best_reaction_time_in_millisec == 0){
+	    	best_reaction_time_in_millisec = last_reaction_time_in_millisec;
+	    }
 
 
       /**************** STUDENT TO FILL IN END HERE ********************/

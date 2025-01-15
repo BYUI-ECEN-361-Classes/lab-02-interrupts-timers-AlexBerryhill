@@ -1,0 +1,34 @@
+!SESSION 2025-01-15 12:17:06.882 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\amsb9\Documents\GitHub\lab-02-interrupts-timers-AlexBerryhill
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-01-15 12:17:17.203
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-01-15 12:17:17.203
+!MESSAGE Log4j2 initialized with config file C:\Users\amsb9\Documents\GitHub\lab-02-interrupts-timers-AlexBerryhill\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-01-15 12:17:25.935
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-01-15 12:20:53.319 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\amsb9\Documents\GitHub\lab-02-interrupts-timers-AlexBerryhill\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\amsb9\Documents\GitHub\lab-02-interrupts-timers-AlexBerryhill\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-01-15 12:21:00.578
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-01-15 12:21:00.595
+!MESSAGE Log4j2 initialized with config file C:\Users\amsb9\Documents\GitHub\lab-02-interrupts-timers-AlexBerryhill\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-01-15 12:21:05.395
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-01-15 12:21:32.680
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39
